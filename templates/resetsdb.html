@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rest DB Page</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+<h1> Reset Page </h1>
+<form action="http://localhost:5000/resetsdb" method="post">
+    <table>
+        <tr><td>Enter Balance Here</td>
+            <td>
+                <input id="upoint" name="upoint" type="text" placeholder="1000"></td>
+        </tr>
+        <tr><td><input type="submit"></td></tr>
+    </table>
+</form>
+    <p>-----------------------------------------------------------------------------------------------</p>
+    <div class="row">
+        <div class="column" style="background-color:#aaa;">
+            <p><h2><b>Rules:</b></h2><br>
+                1) Play Game Manually <br>
+                2) A to 6 : Low Cards <br>
+                3) Card 7 : Do Not Focus on this Card <br>
+                4) 8 to K : High Cards <br>
+                5) Default Balance is: 500 <br>
+
+        </div>
+        <div class="column" style="background-color:#bbb;">
+            <p><h2><b>New Version: 1.5:</b></h2><br>
+                1) Only Lucky 7A Game Avl.   <br>
+                2) RL: Q-Learning Based Game <br>
+                3) Lucky7 A: Aprox 50-60% Accuracy <br>
+                4) User Can Add Custom Balance <br>
+                5) Bet Amount is 100 Only <br>
+                6) Result Page <br>
+                7) Use Reset Page For Add Balance
+        </div>
+      </div>
+
+    <p>-----------------------------------------------------------------------------------------------</p>
+    <h2>Game Type</h2>
+    <dev>
+        <div>
+            <a href="/lucky7a"> Lucky 7 A Game </a>
+            <a href="/result"> Result Page </a>
+            <a href="/resetsdb"> Reset Database</a>
+        </div>
+    </dev>
+</body>
+</html>

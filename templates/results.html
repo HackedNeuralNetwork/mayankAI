@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+<h1> Result Page </h1>
+<h3>Total Current Accuracy: {{ac}}% {{w_in}}</h3>
+<table class="table">
+  <tr class="table_header">
+    <th class="table_cell"> ID </th>
+    <th class="table_cell"> Guess Game </th>
+    <th class="table_cell"> Result Game</th>
+    <th class="table_cell"> Current Balance</th>
+    <th class="table_cell"> Win OR Loss</th>
+  </tr>
+  {% for row in data %}
+  <tr class="table_row">
+    {% for cell in row %}
+    <td class="table_cell"> {{cell}} </td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+<p>-----------------------------------------------------------------------------------------------</p>
+    <a href="/">Home Page</a>
+    <h2>Game Type</h2>
+    <dev>
+        <div>
+            <a href="/lucky7a"> Lucky 7 A Game </a>
+            <a href="/result"> Result Page </a>
+            <a href="/resetsdb"> Reset Database</a>
+        </div>
+    </dev>
+</body>
+</html>

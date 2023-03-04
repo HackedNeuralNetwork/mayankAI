@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky7 A</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+
+</head>
+<body>
+    <h1>GAME PLAY: AI LUCKY 7 A</h1>
+    <h2>Next Game Result:- {{next}}</h2>
+    <p>Last 10 Game:- {{last}}</p>
+    <p> Time Left in Game:- {{t}}</p>
+    <p>Win Result:- {{w}}</p>
+    <p>Current Game Accuracy: 50-60%</p>
+    <p> Current Balance:- {{bal}} </p>
+    <div class="row">
+      <div class="column1">
+          <button onClick="window.location.reload();">Refresh Page</button>
+      </div>
+      <div class="column1">
+          <button onClick="window.location.reload();">Play Game</button>
+      </div>
+    </div>
+
+    <p>-----------------------------------------------------------------------------------------------</p>
+    <div class="row">
+      <div class="column" style="background-color:#aaa;">
+          <p><h2><b>Rules:</b></h2><br>
+              1) Play Game Manually <br>
+              2) A to 6 : Low Cards <br>
+              3) Card 7 : For Card 7 Place Any bet High or Low you will loss 50% only <br>
+              4) 8 to K : High Cards <br>
+              5) Refresh Page To Get New Result </p>
+    
+      </div>
+        <div class="column" style="background-color:#bbb;">
+            <p><h2><b>New Version: 1.5:</b></h2><br>
+                1) Only Lucky 7A Game Avl.   <br>
+                2) RL: Q-Learning Based Game <br>
+                3) Lucky7 A: Aprox 50-60% Accuracy <br>
+                4) User Can Add Custom Balance <br>
+                5) Bet Amount is 100 Only <br>
+                6) Result Page <br>
+                7) Use Reset Page For Add Balance
+        </div>
+    </div>
+    <p>-----------------------------------------------------------------------------------------------</p>
+    <a href="/">Home Page</a>
+    <h2>Game Type</h2>
+    <dev>
+        <div>
+            <a href="/lucky7a"> Lucky 7 A Game </a>
+            <a href="/result"> Result Page </a>
+            <a href="/resetsdb"> Reset Database</a>
+        </div>
+    </dev>
+</body>
+</html>
