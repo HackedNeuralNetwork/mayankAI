@@ -30,7 +30,6 @@ def reset_db():
         db.delete_db()
         db.create_db()
         db.lucky7a("0","0",points,"0")
-        return render_template("index.html")
     return render_template("resetsdb.html")
 
 # Game Page
