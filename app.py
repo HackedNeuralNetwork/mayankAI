@@ -21,7 +21,6 @@ else:
 # Home Page 
 @app.route("/")
 def index():
-    add_data()
     return render_template("index.html") # Return Home HTML Page
 
 @app.route("/resetsdb",methods=['POST','GET'])
