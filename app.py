@@ -12,11 +12,6 @@ guess_game = ""
 result_game = ""
 total_win = 0
 total_loss = 0
-if os.path.isfile("ai.db"):
-    pass
-else:
-    db.create_db()
-    db.lucky7a("0", "0", 500, "0")
 
 # Home Page 
 @app.route("/")

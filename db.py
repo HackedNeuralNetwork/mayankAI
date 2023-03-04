@@ -76,13 +76,14 @@ def get_win():
 Delete Database
 """
 def delete_db():
-    if os.path.isfile("ai.db"):
-        os.remove("ai.db")
-    else:
-        pass
+    conn = sqlite3.connect("ai.db")
+    c = conn.cursor()
+    c.execute(""" DROP TABLE lucky7a """)
+    conn.commit()
+    conn.close()
 
 if __name__ == "__main__":
-    #pass
+    pass
     #create_db()
     # lucky7a("0","0",500,"0")
     # r = get_balance()[0][0]
@@ -90,5 +91,5 @@ if __name__ == "__main__":
     # r = get_win()
     # for i in r:
     #     print(i[0])
-    delete_db()
+    #delete_db()
 
