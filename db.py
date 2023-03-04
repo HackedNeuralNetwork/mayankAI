@@ -79,6 +79,13 @@ def delete_db():
     conn = sqlite3.connect("ai.db")
     c = conn.cursor()
     c.execute(""" DROP TABLE lucky7a """)
+    c.execute(""" CREATE TABLE lucky7a (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            guess_game TEXT,
+            game_result TEXT,
+            bal INTEGER,
+            win TEXT)
+            """)
     conn.commit()
     conn.close()
 

@@ -1,7 +1,6 @@
 from flask import Flask, render_template,request
 import db
 import requests
-import os
 
 app = Flask(__name__)
 last_Games = []
@@ -23,7 +22,6 @@ def reset_db():
     if request.method == "POST":
         points = request.form["upoint"]
         db.delete_db()
-        db.create_db()
         db.lucky7a("0","0",points,"0")
     return render_template("resetsdb.html")
 
