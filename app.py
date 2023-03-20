@@ -38,7 +38,7 @@ def lucky7a():   # retune Game HTMl Page
         last_Games1 = last_Games
         if guess_game == result_game:
             win = "You Win"
-            user_balance += 200
+            user_balance += 100
             db.lucky7a(guess_game,result_game,user_balance,"Y")
         else:
             win = "You Loss"
