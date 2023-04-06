@@ -9,15 +9,38 @@
 </head>
 <body>
 <h1> Reset Page </h1>
-<form action="/resetsdb" method="post">
-    <table>
-        <tr><td>Enter Balance Here</td>
-            <td>
-                <input id="upoint" name="upoint" type="text" placeholder="1000"></td>
-        </tr>
-        <tr><td><input type="submit"></td></tr>
-    </table>
-</form>
+<div>
+    <div>
+        <div>
+            <form action="/create_db" method="POST">
+                <button type="submit">Create Database</button>
+            </form>
+        </div>
+        <div>
+            <form action="/insert_data" method="POST">
+                <label for="guess_game">Guess Game:</label>
+                <input type="text" id="guess_game" name="guess_game" required>
+                <label for="game_result">Game Result:</label>
+                <input type="text" id="game_result" name="game_result" required>
+                <label for="bal">Balance:</label>
+                <input type="number" id="bal" name="bal" required>
+                <label for="win">Win:</label>
+                <input type="text" id="win" name="win" required>
+                <button type="submit">Insert Data</button>
+            </form>
+        </div>
+        <div>
+            <form action="/delete_db" method="POST">
+                <button type="submit">Delete Database</button>
+            </form>
+        </div>
+    </div>
+</div>
+<h3>Please Enter Balance Value Only and all value Enter as 0</h3>
+<p>1)No Need to Create DB <br>
+    2) Use Delete To Clear Old Data<br>
+    3) Inset To Add New Data
+</p>
     <p>-----------------------------------------------------------------------------------------------</p>
     <div class="row">
         <div class="column" style="background-color:#aaa;">

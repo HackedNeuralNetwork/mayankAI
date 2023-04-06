@@ -6,22 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky7 A</title>
     <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function updateData() {
+        $.getJSON("/get_data", function(data) {
+          $("#time").text(data.time);
+          $("#g_id").text(data.g_id);
+          $("#last10").text(data.last10);
+          $("#balance").text(data.balance);
+          $("#nextGame").text(data.nextGame)
+        });
+      }
+
+      $(document).ready(function() {
+        updateData();
+        setInterval(updateData, 1000);  // Update every 1 seconds
+      });
+    </script>
 
 </head>
 <body>
     <h1>GAME PLAY: AI LUCKY 7 A</h1>
-    <h2>Next Game Result:- {{next}}</h2>
-    <p>Last 10 Game:- {{last}}</p>
-    <p> Time Left in Game:- {{t}}</p>
+    <h2>Next Game Result:- <span id="nextGame"></span></h2>
+    <p>Last 10 Game Results: <span id="last10"></span></p>
+    <p>Time: <span id="time"></span></p>
+    <p>Game ID: <span id="g_id"></span></p>
     <p>Win Result:- {{w}}</p>
     <p>Current Game Accuracy: 60-80%</p>
-    <p> Current Balance:- {{bal}} </p>
+    <p> Current Balance:- <span id="balance"></span></p> </p>
     <div class="row">
       <div class="column1">
-          <button onClick="window.location.reload();">Refresh Page</button>
+          <form action="/bet" method="POST">
+                <button type="submit">Place Bet</button>
+          </form>
       </div>
-      <div class="column1">
-          <button onClick="window.location.reload();">Play Game</button>
+        <div class="column1">
+            <form action="/win" method="POST">
+                <button type="submit">Win Game</button>
+            </form>
       </div>
     </div>
 

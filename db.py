@@ -1,36 +1,4 @@
 import sqlite3
-import os
-
-"""
-Creating Database and Tables Name
-"""
-def create_db():
-    conn = sqlite3.connect("ai.db")
-    c = conn.cursor()
-    c.execute(""" CREATE TABLE lucky7a (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        guess_game TEXT,
-        game_result TEXT,
-        bal INTEGER,
-        win TEXT)
-        """)
-    conn.commit()
-    conn.close()
-    print("Create Data Successfully")
-
-"""
-Insert Data Into Tables
-"""
-def lucky7a(guess_game,game_result,bal,win):
-    conn = sqlite3.connect("ai.db")
-    c = conn.cursor()
-    try:
-        c.execute("INSERT INTO lucky7a (guess_game,game_result,bal,win) VALUES ('{}','{}',{},'{}')".format(guess_game,game_result,bal,win))
-    except:
-        pass
-    conn.commit()
-    conn.close()
-
 
 """
 Get Data
@@ -71,32 +39,6 @@ def get_win():
     conn.commit()
     conn.close()
     return rows
-
-"""
-Delete Database
-"""
-def delete_db():
-    conn = sqlite3.connect("ai.db")
-    c = conn.cursor()
-    try:
-        c.execute(""" DROP TABLE lucky7a """)
-        c.execute(""" CREATE TABLE lucky7a (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                guess_game TEXT,
-                game_result TEXT,
-                bal INTEGER,
-                win TEXT)
-                """)
-    except:
-        c.execute(""" CREATE TABLE lucky7a (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                guess_game TEXT,
-                game_result TEXT,
-                bal INTEGER,
-                win TEXT)
-                """)
-    conn.commit()
-    conn.close()
 
 if __name__ == "__main__":
     pass
