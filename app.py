@@ -122,9 +122,10 @@ def update_balance_db():
     balance -= 100
     conn = sqlite3.connect("ai.db")
     c = conn.cursor()
-    c.execute("UPDATE lucky7a SET bal = ? ORDER BY id DESC LIMIT 1", (balance))
+    c.execute("UPDATE lucky7a SET bal = ? WHERE id = (SELECT id FROM lucky7a ORDER BY id DESC LIMIT 1)", (balance,))
     conn.commit()
     conn.close()
+    return render_template("lucky7a.html")
 
 @app.route('/win',methods=['POST'])
 def win_balance_db():
@@ -132,9 +133,10 @@ def win_balance_db():
     balance += 200
     conn = sqlite3.connect("ai.db")
     c = conn.cursor()
-    c.execute("UPDATE lucky7a SET bal = ? ORDER BY id DESC LIMIT 1", (balance))
+    c.execute("UPDATE lucky7a SET bal = ? WHERE id = (SELECT id FROM lucky7a ORDER BY id DESC LIMIT 1)", (balance,))
     conn.commit()
     conn.close()
+    return render_template("lucky7a.html")
 
 @app.route('/create_db', methods=['POST'])
 def create_db():

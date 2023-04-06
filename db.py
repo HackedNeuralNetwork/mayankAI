@@ -40,14 +40,17 @@ def get_win():
     conn.close()
     return rows
 
+def win_balance_db():
+    balance = get_balance()[0][0]
+    balance += 200
+    conn = sqlite3.connect("ai.db")
+    c = conn.cursor()
+    c.execute("UPDATE lucky7a SET bal = ? WHERE id = (SELECT id FROM lucky7a ORDER BY id DESC LIMIT 1)", (balance,))
+    conn.commit()
+    conn.close()
+
+
 if __name__ == "__main__":
-    pass
-    #create_db()
-    # lucky7a("0","0",500,"0")
-    # r = get_balance()[0][0]
-    # update_data("Low")
-    # r = get_win()
-    # for i in r:
-    #     print(i[0])
-    #delete_db()
+    win_balance_db()
+    print(get_balance())
 
