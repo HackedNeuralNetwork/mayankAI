@@ -52,6 +52,19 @@ def lucky7a():   # retune Game HTMl Page
     return render_template("lucky7a.html")
 
 @app.route("/next",methods=['POST'])
+def predict_next_outcome():
+    last_10_results = get_last10game()
+    high_count = last_10_results.count('High')
+    low_count = last_10_results.count('Low')
+    tie_count = last_10_results.count('Tie')
+
+    if high_count > low_count and high_count > tie_count:
+        return "Low"
+    elif low_count > high_count and low_count > tie_count:
+        return "High"
+    else:
+        return "Tie is High"
+
 # def calculate_weighted_probabilities():
 #     game_results = get_last10game()
 #     recent_games = game_results[:5]
@@ -73,17 +86,6 @@ def lucky7a():   # retune Game HTMl Page
 #     }
 #     return str(weighted_probabilities)
 
-def predict_next_outcome(last_10_results):
-    high_count = last_10_results.count('High')
-    low_count = last_10_results.count('Low')
-    tie_count = last_10_results.count('Tie')
-
-    if high_count > low_count and high_count > tie_count:
-        return 'Low'
-    elif low_count > high_count and low_count > tie_count:
-        return 'High'
-    else:
-        return 'Tie is High'
 
 # Get Time and Game ID
 @app.route("/get_data")
