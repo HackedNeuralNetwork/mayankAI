@@ -42,5 +42,27 @@ def get_win():
     conn.close()
     return rows
 
+def create_db():
+    conn = sqlite3.connect("ai.db")
+    c = conn.cursor()
+    c.execute(""" CREATE TABLE results (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        last10 TEXT)
+        """)
+    conn.commit()
+    conn.close()
+
+def insert_last10_results(result):
+    conn = sqlite3.connect("ai.db")
+    c = conn.cursor()
+    c.execute("INSERT INTO results (last10) VALUES (?)", (result,))
+    conn.commit()
+    conn.close()
+
+
+
 if __name__ == "__main__":
-    pass
+    create_db()
+    # last10 = 'LHTHHHLLHH'
+    # insert_last10_results(last10)
+

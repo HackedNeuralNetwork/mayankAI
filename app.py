@@ -36,7 +36,6 @@ def get_last10game():
     return last_Games
 
 
-
 # Home Page
 @app.route("/")
 def index():
@@ -53,27 +52,38 @@ def lucky7a():   # retune Game HTMl Page
     return render_template("lucky7a.html")
 
 @app.route("/next",methods=['POST'])
-def calculate_weighted_probabilities():
-    game_results = get_last10game()
-    recent_games = game_results[:5]
-    less_recent_games = game_results[5:]
+# def calculate_weighted_probabilities():
+#     game_results = get_last10game()
+#     recent_games = game_results[:5]
+#     less_recent_games = game_results[5:]
+#
+#     recent_weight = 0.6
+#     less_recent_weight = 0.4
+#
+#     outcomes = ["High", "Low", "Tie"]
+#     counts = {outcome: [0, 0] for outcome in outcomes}
+#
+#     for outcome in outcomes:
+#         counts[outcome][0] = recent_games.count(outcome)
+#         counts[outcome][1] = less_recent_games.count(outcome)
+#
+#     weighted_probabilities = {
+#         outcome: (counts[outcome][0] * recent_weight + counts[outcome][1] * less_recent_weight) / 10
+#         for outcome in outcomes
+#     }
+#     return str(weighted_probabilities)
 
-    recent_weight = 0.6
-    less_recent_weight = 0.4
+def predict_next_outcome(last_10_results):
+    high_count = last_10_results.count('High')
+    low_count = last_10_results.count('Low')
+    tie_count = last_10_results.count('Tie')
 
-    outcomes = ["High", "Low", "Tie"]
-    counts = {outcome: [0, 0] for outcome in outcomes}
-
-    for outcome in outcomes:
-        counts[outcome][0] = recent_games.count(outcome)
-        counts[outcome][1] = less_recent_games.count(outcome)
-
-    weighted_probabilities = {
-        outcome: (counts[outcome][0] * recent_weight + counts[outcome][1] * less_recent_weight) / 10
-        for outcome in outcomes
-    }
-    return str(weighted_probabilities)
-
+    if high_count > low_count and high_count > tie_count:
+        return 'Low'
+    elif low_count > high_count and low_count > tie_count:
+        return 'High'
+    else:
+        return 'Tie is High'
 
 # Get Time and Game ID
 @app.route("/get_data")
@@ -81,11 +91,8 @@ def get_data():
     time, g_id = get_time_gID()
     last10 = get_last10game()
     user_balance = db.get_balance()[0][0]
-    nextGame = calculate_weighted_probabilities()
-    if "Tie" in last10:
-        return jsonify({"time": time, "g_id": g_id, "last10": str(last10), "balance": user_balance, "nextGame": "Wait Tie Card in last 10 Game"})
-    else:
-        return jsonify({"time": time, "g_id": g_id, "last10": str(last10), "balance": user_balance, "nextGame": nextGame})
+    nextGame = predict_next_outcome()
+    return jsonify({"time": time, "g_id": g_id, "last10": str(last10), "balance": user_balance, "nextGame": nextGame})
 
 
 
@@ -115,6 +122,9 @@ def get_Accuracy():
     else:
         ac = total_loss/len(getwin)*100
         return ac,"Loss"
+
+# @app.route('/acc')
+# def get
 
 @app.route('/bet',methods=['POST'])
 def update_balance_db():
