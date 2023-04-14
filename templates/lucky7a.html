@@ -13,7 +13,6 @@
           $("#time").text(data.time);
           $("#g_id").text(data.g_id);
           $("#last10").text(data.last10);
-          $("#balance").text(data.balance);
           $("#nextGame").text(data.nextGame)
         });
       }
@@ -26,58 +25,72 @@
 
 </head>
 <body>
-    <h1>GAME PLAY: AI LUCKY 7 A</h1>
+    <h1>Free Version of Casino AI Games</h1>
+    <div>
+        <div>
+            <p> <b>Game Development Version</b> 2.5v
+             <b>Game Type:</b> High and Low Card Guess Game</p>
+        </div>
+    </div>
+    <p>-----------------------------------------------------------------------------------------------</p>
+    <h1>GAME PLAY:LUCKY 7A</h1>
     <h2>Next Game Result:- <span id="nextGame"></span></h2>
     <p>Last 10 Game Results: <span id="last10"></span></p>
     <p>Time: <span id="time"></span></p>
     <p>Game ID: <span id="g_id"></span></p>
-    <p>Win Result:- {{w}}</p>
-    <p>Current Game Accuracy: 60-80%</p>
-    <p> Current Balance:- <span id="balance"></span></p> </p>
-    <div class="row">
-      <div class="column1">
-          <form action="/bet" method="POST">
-                <button type="submit">Place Bet</button>
-          </form>
-      </div>
-        <div class="column1">
-            <form action="/win" method="POST">
-                <button type="submit">Win Game</button>
-            </form>
-      </div>
-    </div>
-
+    <p>Current Game Accuracy: 60%</p><br>
     <p>-----------------------------------------------------------------------------------------------</p>
     <div class="row">
         <div class="column" style="background-color:#aaa;">
-            <p><h2><b>Rules:</b></h2><br>
-                1) Play Game Manually <br>
-                2) A to 6 : Low Cards <br>
-                3) Card 7 : Part of High Card <br>
-                4) 8 to K : High Cards <br>
+            <p><h2><b>Game Rules: lucky 7A</b></h2><br>
+                1) A to 6 : Low Cards <br>
+                2) Card 7 : Tie(we Show as High Card) <br>
+                3) 8 to K : High Cards <br>
+                4) We show Tie Card as High Card
 
         </div>
         <div class="column" style="background-color:#bbb;">
-            <p><h2><b>New Version: 2.2:</b></h2><br>
-                1) Only Lucky 7A Game Avl.   <br>
-                2) RL: Deep Q-Network(DQN) Based Game <br>
-                3) Lucky7 A: Aprox 60 Accuracy <br>
-                4) User Can Add Custom Balance: Go To "/resetsdb" Page <br>
-                5) Bet Amount is 100 Only: Click on Place Bet <br>
-                6) Result Page <br>
-                7) Use Win Bet Button to add 200 in your current Balance <br>
-                8) Use Tie Card as a High Card
-
+            <p><h2><b>New Version: 2.5:</b></h2><br>
+                1) Only Lucky 7A Game is Avl.   <br>
+                2) Reinforcement Learning Based AI<br>
+                3) Lucky7 A: Approx 60 Accuracy <br>
+                4) More Game Coming Soon
+        </div>
+      </div>
+        <div class="container">
+        <div class="column left">
+            <h2>Pro Version: Paid</h2>
+            <h3>Get More Profit With 80% Accuracy AI</h3>
+            <p>1 Day Subscription: Rs 2000.00 / $30 / USDT 30</p>
+            <p>15 Days Subscription: Rs 5000.00 / $70 / USDT 70</p>
+            <p>45 Days Subscription: Rs 10,000.00 / $130 / USDT 30</p><br>
+            <a href="https://telegram.me/aicasinogame"> Contact Us: Telegram</a>
+        </div>
+        <div class="column right">
+            <h2>Game Website Supports</h2>
+            <p>* Betbhai9
+* Allpannel
+* Maruti9
+* Lords exchange
+* Diamond exchange
+* Sapphire
+* Go exchange
+* Dominoz
+* Silver exchange
+* World777
+* Silent exchange
+* Trade exchange
+* Diamond exchange
+* Ice exchange
+            * Much More</p>
+            <p> Any Website which have <b>LUCKY 7A</b> Game, Our AI Perfectly Works Fine</p>
         </div>
     </div>
-    <p>-----------------------------------------------------------------------------------------------</p>
-    <a href="/">Home Page</a>
-    <h2>Game Type</h2>
+   <h2>Live Casino Game</h2>
     <dev>
         <div>
-            <a href="/lucky7a"> Lucky 7 A Game </a>
-            <a href="/result"> Result Page </a>
-            <a href="/resetsdb"> Reset Database</a>
+            <a href="/">Home Page</a>
+            <a href="/lucky7a"> Lucky 7A Game </a>
         </div>
     </dev>
 </body>

@@ -51,3 +51,23 @@ a:link, a:visited {
   display: table;
   clear: both;
 }
+
+/* New Div */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+.left {
+    background-color: #ffffff;
+}
+
+.right {
+    background-color: #ffffff;
+}
+
